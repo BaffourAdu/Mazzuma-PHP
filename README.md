@@ -28,7 +28,7 @@ $APIKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 $payment = new MazzumaPayment($APIKey);
 
 try {
-    $response = $payment::recieve('MTN_TO_MTN')
+    $response = $payment::send('MTN_TO_MTN')
                 ->amount(1)
                 ->from('054xxxxxxx')
                 ->to('054xxxxxxxx')

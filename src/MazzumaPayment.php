@@ -144,7 +144,7 @@ class MazzumaPayment
      *
      * @return object
      */
-    public static function recieve($paymentFlow): self
+    public static function send($paymentFlow): self
     {
         $networks = explode("_", $paymentFlow);
         self::$payeeNetwork = strtolower($networks[0]);
