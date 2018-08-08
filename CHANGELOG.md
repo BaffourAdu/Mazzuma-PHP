@@ -1,8 +1,6 @@
 # Changelog
 
-All notable changes to `:package_name` will be documented in this file.
-
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
+All notable changes to `mazzuma` will be documented in this file.
 
 ## NEXT - YYYY-MM-DD
 

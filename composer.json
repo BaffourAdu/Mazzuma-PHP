@@ -1,18 +1,18 @@
 {
-    "name": ":vendor/:package_name",
+    "name": "BaffourAdu/Mazzuma",
     "type": "library",
-    "description": ":package_description",
+    "description": "A library for Mazzuma's Payment Gateway",
     "keywords": [
-        ":vendor",
-        ":package_name"
+        ":baffouradu",
+        ":mazzuma"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/BaffourAdu/Mazzuma",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Baffour Adu Boampong",
+            "email": "baffouraduboampong@gmail.com",
+            "homepage": "https://github.com/BaffourAdu",
             "role": "Developer"
         }
     ],
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            ":vendor\\:package_name\\": "src"
+            "BaffourAdu\\Mazzuma\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":vendor\\:package_name\\": "tests"
+            "BaffourAdu\\Mazzuma\\": "tests"
         }
     },
     "scripts": {

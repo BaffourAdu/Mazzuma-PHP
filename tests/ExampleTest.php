@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Skeleton;
+namespace BaffourAdu\mazzuma;
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {
