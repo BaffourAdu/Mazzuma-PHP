@@ -2,7 +2,8 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status](https://travis-ci.org/BaffourAdu/Mazzuma-PHP.svg?branch=master)](https://travis-ci.org/BaffourAdu/Mazzuma-PHP)[![Code Coverage](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/?branch=master)
+[![Build Status](https://travis-ci.org/BaffourAdu/Mazzuma-PHP.svg?branch=master)](https://travis-ci.org/BaffourAdu/Mazzuma-PHP)
+[![Code Coverage](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/?branch=master)
 [![Total Downloads][ico-downloads]][link-downloads]
 
