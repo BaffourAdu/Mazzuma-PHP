@@ -4,6 +4,8 @@
     "description": "A library for Mazzuma's Payment Gateway",
     "keywords": [
         "baffouradu",
+        "payments",
+        "mobile money",
         "mazzuma"
     ],
     "homepage": "https://github.com/BaffourAdu/Mazzuma",

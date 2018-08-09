@@ -14,7 +14,7 @@ A library for consuming Mazzuma's payment API to send or receiv Mobile Money for
 Via Composer
 
 ``` bash
-$ composer require BaffourAdu/mazzuma
+$ composer require baffouradu/mazzuma
 ```
 
 ## Usage
