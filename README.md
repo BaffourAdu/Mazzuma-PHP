@@ -2,9 +2,8 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
+[![Build Status](https://travis-ci.org/BaffourAdu/Mazzuma-PHP.svg?branch=master)](https://travis-ci.org/BaffourAdu/Mazzuma-PHP)[![Code Coverage](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/?branch=master)
 [![Total Downloads][ico-downloads]][link-downloads]
 
 A library for consuming Mazzuma's payment API to send or receiv Mobile Money for a PHP Application. 
@@ -76,15 +75,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/BaffourAdu/mazzuma.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/BaffourAdu/mazzuma/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/BaffourAdu/mazzuma.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/BaffourAdu/mazzuma.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/BaffourAdu/mazzuma.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/BaffourAdu/mazzuma
-[link-travis]: https://travis-ci.org/BaffourAdu/Mazzuma-PHP.svg?branch=master
-[link-scrutinizer]: https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/coverage.png?b=master
-[link-code-quality]: https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/quality-score.png?b=master
 [link-downloads]: https://packagist.org/packages/BaffourAdu/mazzuma
 [link-author]: https://twitter.com/BaffourBoampong
 [link-contributors]: ../../contributors
