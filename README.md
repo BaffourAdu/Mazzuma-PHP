@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A library for consuming Mazzuma's payment API for sending or receiving Mobile Money for a PHP Application. 
+A library for consuming Mazzuma's payment API to send or receiv Mobile Money for a PHP Application. 
 
 ## Install
 
