@@ -27,17 +27,19 @@ use \BaffourAdu\Mazzuma\MazzumaPayment;
 $APIKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 $payment = new MazzumaPayment($APIKey);
 
-$response = $payment->transfer('MTN_TO_MTN')
-            ->amount(1)
-            ->from('05xxxxxx')
-            ->to('02xxxxxx')
-            ->send();
+try {
+    $response = $payment->transfer('MTN_TO_MTN')
+                ->amount(1)
+                ->from('05xxxxxx')
+                ->to('02xxxxxx')
+                ->send();
 
-if ($payment->isSuccessful()) {
-    echo $response;
-} else {
-    echo $response;
-}   
+    if ($payment->isSuccessful()) {
+        echo $response;
+    } else {
+        echo $response;
+    }   
+}
 //catch exception
 catch (Exception $e) {
     echo 'Message: ' .$e->getMessage();
