@@ -15,33 +15,35 @@ use GuzzleHttp\Client;
 class MazzumaPayment
 {
     /** @var string The API access token */
-    private static $key = null;
+    private $key = null;
     /** @var string The Network directional flow of payment */
-    private static $flow = null;
+    private $flow = null;
     /** @var string The network of the Sender */
-    private static $payeeNetwork = null;
-
+    private $payeeNetwork = null;
     /** @var string The Sender Telephone Number */
     private $from = null;
     /** @var string The Reciever Telephone Number */
     private $to = null;
     /** @var integer The amount being Transfered */
     private $amount = null;
-    
+    /** @var integer The response from the API */
+    private $apiResponse = null;
+
     /** @var string The API URL */
-    private $API = 'https://client.teamcyst.com/api_call.php';
+    private $api = 'https://client.teamcyst.com/api_call.php';
 
 
         
     /**
      * Creates a new MazzumaPayment Instance
+     *
      * @return object
      */
     public function __construct($key)
     {
-        self::$key = $key;
+        $this->key = $key;
 
-        return self::$key;
+        return $this;
     }
 
     /**
@@ -49,22 +51,22 @@ class MazzumaPayment
      *
      * @return object The Response from the API Call
      */
-    public function now()
+    public function send()
     {
-        $data = $this->parsePaymentDetails(self::$flow, self::$payeeNetwork, self::$key, $this->from, $this->to, $this->amount);
+        $data = $this->parsePaymentDetails($this->flow, $this->payeeNetwork, $this->key, $this->from, $this->to, $this->amount);
         
-        $additional_headers = array(
+        $additionalHeaders = array(
             'Content-Type: application/json'
          );
 
-        $ch = curl_init($this->API);
+        $ch = curl_init($this->api);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $additional_headers);
-        $api_response = curl_exec($ch);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $additionalHeaders);
+        $this->apiResponse = curl_exec($ch);
 
-        return $api_response;
+        return $this->apiResponse;
     }
 
     /**
@@ -101,7 +103,7 @@ class MazzumaPayment
      */
     public function from($payee)
     {
-        self::validateTelephone($payee);
+        $this->validateTelephone($payee);
         $this->from = $payee;
 
         return $this;
@@ -115,8 +117,7 @@ class MazzumaPayment
      */
     public function to($reciever)
     {
-        self::validateTelephone($reciever);
-
+        $this->validateTelephone($reciever);
         $this->to = $reciever;
 
         return $this;
@@ -130,12 +131,11 @@ class MazzumaPayment
      */
     public function amount($totalAmount)
     {
-        self::validateAmount($totalAmount);
-
+        $this->validateAmount($totalAmount);
         $this->amount = $totalAmount;
+
         return $this;
     }
-
 
 
     /**
@@ -144,55 +144,69 @@ class MazzumaPayment
      *
      * @return object
      */
-    public static function send($paymentFlow): self
+    public function transfer($paymentFlow)
     {
         $networks = explode("_", $paymentFlow);
-        self::$payeeNetwork = strtolower($networks[0]);
+        $this->payeeNetwork = strtolower($networks[0]);
 
-        self::setPaymentRoute($paymentFlow);
+        $this->setPaymentRoute($paymentFlow);
 
-        return new static(self::$key, self::$payeeNetwork, self::$flow);
+        return $this;
+    }
+
+    /**
+     * Checks if payment was successful
+     *
+     * @return boolean
+     */
+    public function isSuccessful()
+    {
+        if (!$this->apiResponse->status == 'success') {
+            return false;
+        }
+
+        return true;
     }
 
     /**
      * Sets the Option Parameter in the Data Payload
-     *
+     *`
      * @param string $paymentDirection The flow of the Payment
      *
      * @return string Returns the ioption value for the payload
      */
-    public static function setPaymentRoute($paymentDirection)
+    public function setPaymentRoute($paymentDirection)
     {
         switch ($paymentDirection) {
             case 'MTN_TO_MTN':
-                self::$flow = 'rmtm';
+                $this->flow = 'rmtm';
                 break;
             case 'MTN_TO_AIRTEL':
-                self::$flow = 'rmta';
+                $this->flow = 'rmta';
                 break;
             case 'MTN_TO_VODAFONE':
-                self::$flow = 'rmtv';
+                $this->flow = 'rmtv';
                 break;
             case 'AIRTEL_TO_MTN':
-                self::$flow = 'ratm';
+                $this->flow = 'ratm';
                 break;
             case 'AIRTEL_TO_AIRTEL':
-                self::$flow = 'rata';
+                $this->flow = 'rata';
                 break;
             case 'AIRTEL_TO_VODAFONE':
-                self::$flow = 'ratv';
+                $this->flow = 'ratv';
                 break;
             case 'VODAFONE_TO_MTN':
-                self::$flow = 'rvtm';
+                $this->flow = 'rvtm';
                 break;
             case 'VODAFONE_TO_AIRTEL':
-                self::$flow = 'rvta';
+                $this->flow = 'rvta';
                 break;
             case 'VODAFONE_TO_VODAFONE':
-                self::$flow = 'rvtv';
+                $this->flow = 'rvtv';
                 break;
             default:
-                self::$flow = null;
+                $this->flow = null;
                 break;
         }
     }
@@ -204,7 +218,7 @@ class MazzumaPayment
      *
      * @return boolean
      */
-    private static function validateTelephone($telephone)
+    private function validateTelephone($telephone)
     {
         if (!is_string($telephone)) {
             throw new \InvalidArgumentException('Telephone Number must be a String.');
@@ -222,7 +236,7 @@ class MazzumaPayment
      *
      * @return boolean
      */
-    private static function validateAmount($amount)
+    private function validateAmount($amount)
     {
         if (!is_numeric($amount)) {
             throw new \InvalidArgumentException('Amount must be a number.');
