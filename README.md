@@ -82,9 +82,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-downloads]: https://img.shields.io/packagist/dt/BaffourAdu/mazzuma.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/BaffourAdu/mazzuma
-[link-travis]: https://travis-ci.org/BaffourAdu/mazzuma
-[link-scrutinizer]: https://scrutinizer-ci.com/g/BaffourAdu/mazzuma/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/BaffourAdu/mazzuma
+[link-travis]: https://travis-ci.org/BaffourAdu/Mazzuma-PHP.svg?branch=master
+[link-scrutinizer]: https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/coverage.png?b=master
+[link-code-quality]: https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/quality-score.png?b=master
 [link-downloads]: https://packagist.org/packages/BaffourAdu/mazzuma
 [link-author]: https://twitter.com/BaffourBoampong
 [link-contributors]: ../../contributors
