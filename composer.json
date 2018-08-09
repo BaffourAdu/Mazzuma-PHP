@@ -3,8 +3,8 @@
     "type": "library",
     "description": "A library for Mazzuma's Payment Gateway",
     "keywords": [
-        ":baffouradu",
-        ":mazzuma"
+        "baffouradu",
+        "mazzuma"
     ],
     "homepage": "https://github.com/BaffourAdu/Mazzuma",
     "license": "MIT",
