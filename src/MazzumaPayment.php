@@ -53,7 +53,14 @@ class MazzumaPayment
      */
     public function send()
     {
-        $data = $this->parsePaymentDetails($this->flow, $this->payeeNetwork, $this->key, $this->from, $this->to, $this->amount);
+        $data = $this->parsePaymentDetails(
+            $this->flow,
+            $this->payeeNetwork,
+            $this->key,
+            $this->from,
+            $this->to,
+            $this->amount
+        );
         
         $additionalHeaders = array(
             'Content-Type: application/json'
@@ -79,8 +86,14 @@ class MazzumaPayment
      * @param $amount integer The amount been transacted
      * @return object
      */
-    private function parsePaymentDetails($paymentDirectionalFlow, $payeeNetwork, $APIKey, $payee, $reciever, $amount)
-    {
+    private function parsePaymentDetails(
+        $paymentDirectionalFlow,
+        $payeeNetwork,
+        $APIKey,
+        $payee,
+        $reciever,
+        $amount
+    ) {
         $data = [
             "price"=> $amount,
             "network"=> $payeeNetwork,
