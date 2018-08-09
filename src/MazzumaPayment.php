@@ -37,13 +37,10 @@ class MazzumaPayment
     /**
      * Creates a new MazzumaPayment Instance
      *
-     * @return object
      */
     public function __construct($key)
     {
         $this->key = $key;
-
-        return $this;
     }
 
     /**
