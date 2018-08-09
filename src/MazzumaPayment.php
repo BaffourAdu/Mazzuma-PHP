@@ -2,8 +2,8 @@
 
 namespace BaffourAdu\Mazzuma;
 
-use BaffourAdu\Mazzuma\Exceptions;
-use GuzzleHttp\Client;
+use BaffourAdu\Mazzuma\Exception\AmountValidateException;
+use BaffourAdu\Mazzuma\Exception\TelephoneValidateException;
 
 /**
  * Class Mazzuma
@@ -79,7 +79,7 @@ class MazzumaPayment
      * @param $amount integer The amount been transacted
      * @return object
      */
-    public function parsePaymentDetails($paymentDirectionalFlow, $payeeNetwork, $APIKey, $payee, $reciever, $amount)
+    private function parsePaymentDetails($paymentDirectionalFlow, $payeeNetwork, $APIKey, $payee, $reciever, $amount)
     {
         $data = [
             "price"=> $amount,
@@ -175,7 +175,7 @@ class MazzumaPayment
      *
      * @return string Returns the ioption value for the payload
      */
-    public function setPaymentRoute($paymentDirection)
+    private function setPaymentRoute($paymentDirection)
     {
         switch ($paymentDirection) {
             case 'MTN_TO_MTN':
@@ -221,10 +221,10 @@ class MazzumaPayment
     private function validateTelephone($telephone)
     {
         if (!is_string($telephone)) {
-            throw new \InvalidArgumentException('Telephone Number must be a String.');
+            throw new TelephoneValidateException('Telephone Number must be a String.');
         }
-        if (strlen($telephone) < 10) {
-            throw new \InvalidArgumentException('Telephone Number is too short, and thus invalid.');
+        if (strlen($telephone) != 10) {
+            throw new TelephoneValidateException('Telephone Number is Invalid.');
         }
         return true;
     }
@@ -239,7 +239,7 @@ class MazzumaPayment
     private function validateAmount($amount)
     {
         if (!is_numeric($amount)) {
-            throw new \InvalidArgumentException('Amount must be a number.');
+            throw new AmountValidateException('Amount must be a number.');
         }
 
         return true;
