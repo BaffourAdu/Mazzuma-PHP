@@ -6,7 +6,7 @@ use BaffourAdu\Mazzuma\Exception\AmountValidateException;
 use BaffourAdu\Mazzuma\Exception\TelephoneValidateException;
 
 /**
- * Class Mazzuma
+ * Class MazzumaPayment
  *
  * The main class for API consumption
  *
@@ -199,7 +199,7 @@ class MazzumaPayment
      */
     public function isSuccessful()
     {
-        if (!$this->apiResponse->status == 'success') {
+        if (!$this->apiResponse['status'] == 'success') {
             return false;
         }
 
