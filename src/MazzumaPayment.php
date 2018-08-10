@@ -94,8 +94,7 @@ class MazzumaPayment
         $reciever,
         $amount
     ) {
-        if (
-            empty($amount) ||
+        if (empty($amount) ||
             empty($payeeNetwork) ||
             empty($reciever) ||
             empty($payee) ||
