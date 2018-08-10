@@ -49,6 +49,10 @@ class MazzumaPayment
      */
     public function send()
     {
+        if (!function_exists('curl_version')) {
+            return "CURL isn't enabled on your Server !";
+        }
+
         $data = $this->parsePaymentDetails(
             $this->flow,
             $this->payeeNetwork,
@@ -90,6 +94,16 @@ class MazzumaPayment
         $reciever,
         $amount
     ) {
+        if (
+            empty($amount) ||
+            empty($payeeNetwork) ||
+            empty($reciever) ||
+            empty($payee) ||
+            empty($paymentDirectionalFlow) ||
+            empty($APIKey)) {
+            return "Invalid Input !";
+        }
+
         $data = [
             "price"=> $amount,
             "network"=> $payeeNetwork,
@@ -113,7 +127,7 @@ class MazzumaPayment
     public function from($payee)
     {
         $this->validateTelephone($payee);
-        $this->from = $payee;
+        $this->from = trim($payee);
 
         return $this;
     }
@@ -137,7 +151,7 @@ class MazzumaPayment
     public function to($reciever)
     {
         $this->validateTelephone($reciever);
-        $this->to = $reciever;
+        $this->to = trim($reciever);
 
         return $this;
     }
@@ -161,7 +175,7 @@ class MazzumaPayment
     public function amount($totalAmount)
     {
         $this->validateAmount($totalAmount);
-        $this->amount = $totalAmount;
+        $this->amount = trim($totalAmount);
 
         return $this;
     }
@@ -213,7 +227,7 @@ class MazzumaPayment
      */
     private function getSenderNetwork($paymentFlow)
     {
-        $networks = explode("_", $paymentFlow);
+        $networks = explode("_", trim($paymentFlow));
 
         return strtolower($networks[0]);
     }
@@ -290,7 +304,7 @@ class MazzumaPayment
      */
     private function validateTelephone($telephone)
     {
-        if (!is_string($telephone)) {
+        if (!is_numeric($telephone)) {
             throw new TelephoneValidateException('Telephone Number must be a String.');
         }
         if (strlen($telephone) != 10) {
