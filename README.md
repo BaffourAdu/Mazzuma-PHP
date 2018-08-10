@@ -35,10 +35,10 @@ try {
                 ->send();
 
     if ($payment->isSuccessful()) {
-        echo $response;
+        print_r($response);
     } else {
-        echo $response;
-    }   
+        print_r($response);
+    }  
 } catch (Exception $e) {
     echo 'Message: ' .$e->getMessage();
 }
