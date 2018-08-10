@@ -32,7 +32,6 @@ class MazzumaPayment
     /** @var string The API URL */
     private $api = 'https://client.teamcyst.com/api_call.php';
 
-
         
     /**
      * Creates a new MazzumaPayment Instance
@@ -120,6 +119,16 @@ class MazzumaPayment
     }
 
     /**
+     * returns the Sender
+     *
+     * @return string
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
      * Sets the Reciever
      * @param $reciever string The telephone Number of the Reciever
      *
@@ -131,6 +140,16 @@ class MazzumaPayment
         $this->to = $reciever;
 
         return $this;
+    }
+
+    /**
+     * returns the Reciever
+     *
+     * @return object
+     */
+    public function getTo()
+    {
+        return $this->to;
     }
 
     /**
@@ -147,6 +166,16 @@ class MazzumaPayment
         return $this;
     }
 
+    /**
+     * returns the Amount
+     * @param $totalAmount string The amount to be sent
+     *
+     * @return integer
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
 
     /**
      * Sets the Sender Network
@@ -156,8 +185,7 @@ class MazzumaPayment
      */
     public function transfer($paymentFlow)
     {
-        $networks = explode("_", $paymentFlow);
-        $this->payeeNetwork = strtolower($networks[0]);
+        $this->payeeNetwork = $this->getSenderNetwork($paymentFlow);
 
         $this->setPaymentRoute($paymentFlow);
 
@@ -176,6 +204,18 @@ class MazzumaPayment
         }
 
         return true;
+    }
+
+    /**
+     * Gets the Sender Network from the payment Flow
+     *
+     * @return boolean
+     */
+    public function getSenderNetwork($paymentFlow)
+    {
+        $networks = explode("_", $paymentFlow);
+
+        return strtolower($networks[0]);
     }
 
     /**
