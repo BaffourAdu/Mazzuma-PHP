@@ -78,13 +78,14 @@ class MazzumaPayment
 
     /**
      * Parses the Payment Details into Json for API call
-     * @param $paymentDirectionalFlow string The Network directional flow of payment
-     * @param $payeeNetwork string The Network Operator of the Sender
-     * @param $APIKey string The API access key, as obtained on https://dashboard.mazzuma.com/
-     * @param $payee string The Sender Telephone Number
-     * @param $reciever string The Recievers Telephone Number
-     * @param $amount integer The amount been transacted
-     * @return object
+     * @param string $paymentDirectionalFlow  The Network directional flow of payment
+     * @param string $payeeNetwork The Network Operator of the Sender
+     * @param string $APIKey The API access key, as obtained on https://dashboard.mazzuma.com/
+     * @param string $payee The Sender Telephone Number
+     * @param string $reciever The Recievers Telephone Number
+     * @param integer $amount The amount been transacted
+     *
+     * @return string
      */
     private function parsePaymentDetails(
         $paymentDirectionalFlow,
@@ -121,7 +122,7 @@ class MazzumaPayment
      * Sets the Sender
      * @param $payee string The telephone Number of the Sender
      *
-     * @return object
+     * @return MazzumaPayment
      */
     public function from($payee)
     {
@@ -145,7 +146,7 @@ class MazzumaPayment
      * Sets the Reciever
      * @param $reciever string The telephone Number of the Reciever
      *
-     * @return object
+     * @return MazzumaPayment
      */
     public function to($reciever)
     {
@@ -158,7 +159,7 @@ class MazzumaPayment
     /**
      * returns the Reciever
      *
-     * @return object
+     * @return string
      */
     public function getTo()
     {
@@ -169,12 +170,12 @@ class MazzumaPayment
      * Sets the Amount
      * @param $totalAmount string The amount to be sent
      *
-     * @return object
+     * @return MazzumaPayment
      */
     public function amount($totalAmount)
     {
         $this->validateAmount($totalAmount);
-        $this->amount = trim($totalAmount);
+        $this->amount = $totalAmount;
 
         return $this;
     }
@@ -194,7 +195,7 @@ class MazzumaPayment
      * Sets the Sender Network
      * @param $paymentFlow string The flow of the Payment
      *
-     * @return object
+     * @return MazzumaPayment
      */
     public function transfer($paymentFlow)
     {
@@ -234,7 +235,7 @@ class MazzumaPayment
     /**
      * returns the Reciever
      *
-     * @return object
+     * @return string
      */
     public function getPayeeNetwork()
     {
