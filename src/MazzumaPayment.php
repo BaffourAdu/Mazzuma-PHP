@@ -50,6 +50,8 @@ class MazzumaPayment
     public function send()
     {
         if (!function_exists('curl_version')) {
+            //TODO: Throw an Exception
+
             return "CURL isn't enabled on your Server !";
         }
 
@@ -102,7 +104,14 @@ class MazzumaPayment
             empty($payee) ||
             empty($paymentDirectionalFlow) ||
             empty($APIKey)) {
+            //TODO: Throw an Exception
+
             return "Invalid Input !";
+        }
+
+        if ($reciever == $payee) {
+            //TODO: Throw an Exception
+            return false;
         }
 
         $data = [

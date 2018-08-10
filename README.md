@@ -35,13 +35,13 @@ try {
                 ->send();
 
     if ($payment->isSuccessful()) {
-        /* $response is an array with the original
+        /* $response holds the original
         structure of Mazzuma's API Response */
-        print_r($response);
+        echo json_encode($response);
     } else {
-        /* $response is an array with the original
+        /* $response holds the original
         structure of Mazzuma's API Response */
-        print_r($response);
+        echo json_encode($response);
     }  
 } catch (Exception $e) {
     echo 'Message: ' .$e->getMessage();
