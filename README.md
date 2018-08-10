@@ -39,11 +39,10 @@ try {
     } else {
         echo $response;
     }   
-}   
-//catch exception
-catch (Exception $e) {
+} catch (Exception $e) {
     echo 'Message: ' .$e->getMessage();
 }
+
 
 ```
 
