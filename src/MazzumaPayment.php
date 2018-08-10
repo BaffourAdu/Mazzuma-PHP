@@ -71,7 +71,8 @@ class MazzumaPayment
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $additionalHeaders);
-        $this->apiResponse = curl_exec($ch);
+        $response = curl_exec($ch);
+        $this->apiResponse = json_decode($response, true);
 
         return $this->apiResponse;
     }
