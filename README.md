@@ -35,8 +35,12 @@ try {
                 ->send();
 
     if ($payment->isSuccessful()) {
+        /* $response is an array with the original
+        structure of Mazzuma's API Response */
         print_r($response);
     } else {
+        /* $response is an array with the original
+        structure of Mazzuma's API Response */
         print_r($response);
     }  
 } catch (Exception $e) {

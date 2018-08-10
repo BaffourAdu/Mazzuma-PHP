@@ -305,13 +305,11 @@ class MazzumaPayment
      */
     private function validateTelephone($telephone)
     {
-        if (!is_numeric($telephone)) {
-            throw new TelephoneValidateException('Telephone Number must be a String.');
-        }
-        if (strlen($telephone) != 10) {
+        if (preg_match("/^\d{3}\d{3}\d{4}$/", $telephone)) {
+            return true;
+        } else {
             throw new TelephoneValidateException('Telephone Number is Invalid.');
         }
-        return true;
     }
 
     /**
