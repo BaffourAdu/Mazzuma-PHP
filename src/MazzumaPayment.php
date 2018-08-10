@@ -15,19 +15,19 @@ use BaffourAdu\Mazzuma\Exception\TelephoneValidateException;
 class MazzumaPayment
 {
     /** @var string The API access token */
-    private $key = null;
+    private $key;
     /** @var string The Network directional flow of payment */
-    private $flow = null;
+    private $flow;
     /** @var string The network of the Sender */
-    private $payeeNetwork = null;
+    private $payeeNetwork;
     /** @var string The Sender Telephone Number */
-    private $from = null;
+    private $from;
     /** @var string The Reciever Telephone Number */
-    private $to = null;
+    private $to;
     /** @var integer The amount being Transfered */
-    private $amount = null;
+    private $amount;
     /** @var integer The response from the API */
-    private $apiResponse = null;
+    private $apiResponse;
 
     /** @var string The API URL */
     private $api = 'https://client.teamcyst.com/api_call.php';
@@ -211,11 +211,21 @@ class MazzumaPayment
      *
      * @return boolean
      */
-    public function getSenderNetwork($paymentFlow)
+    private function getSenderNetwork($paymentFlow)
     {
         $networks = explode("_", $paymentFlow);
 
         return strtolower($networks[0]);
+    }
+
+    /**
+     * returns the Reciever
+     *
+     * @return object
+     */
+    public function getPayeeNetwork()
+    {
+        return $this->payeeNetwork;
     }
 
     /**
@@ -259,6 +269,16 @@ class MazzumaPayment
                 $this->flow = null;
                 break;
         }
+    }
+
+    /**
+     * returns the Flow of the Transaction
+     *
+     * @return string
+     */
+    public function getFlow()
+    {
+        return $this->flow;
     }
 
     /**
