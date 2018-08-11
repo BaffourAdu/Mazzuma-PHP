@@ -286,7 +286,6 @@ class MazzumaPayment
                 break;
             default:
                 throw new PaymentFlowValidateException('Payment Flow is Invalid !.');
-                break;
         }
     }
 

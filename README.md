@@ -20,6 +20,7 @@ $ composer require baffouradu/mazzuma
 ## Usage
 
 ``` php
+
 require "vendor/autoload.php";
 
 use \BaffourAdu\Mazzuma\MazzumaPayment;
@@ -48,7 +49,6 @@ try {
 } catch (Exception $e) {
     echo 'Message: ' .$e->getMessage();
 }
-
 
 ```
 
