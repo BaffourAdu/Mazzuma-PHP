@@ -228,7 +228,7 @@ class MazzumaPayment
     /**
      * Gets the Sender Network from the payment Flow
      *
-     * @return boolean
+     * @return string
      */
     private function getSenderNetwork($paymentFlow)
     {
