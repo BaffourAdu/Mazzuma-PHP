@@ -16,7 +16,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testAmountCanBeSet()
     {
@@ -27,7 +27,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testFromCanBeSet()
     {
@@ -38,7 +38,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testToCanBeSet()
     {
@@ -49,7 +49,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testGettingNetworkOfSender()
     {
@@ -60,7 +60,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testFlowOfTransaction()
     {
@@ -71,7 +71,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testMazzumaPaymentHasKeyAttribute()
     {
@@ -79,7 +79,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testMazzumaPaymentHasApiAttribute()
     {
@@ -87,7 +87,7 @@ class MazzumaPaymentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that true does in fact equal true
+     * @test
      */
     public function testMazzumaPaymentHasApiResponseAttribute()
     {

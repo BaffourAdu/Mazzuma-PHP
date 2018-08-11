@@ -105,13 +105,8 @@ class MazzumaPayment
             empty($paymentDirectionalFlow) ||
             empty($APIKey)) {
             //TODO: Throw an Exception
-
+            
             return "Invalid Input !";
-        }
-
-        if ($reciever == $payee) {
-            //TODO: Throw an Exception
-            return false;
         }
 
         $data = [
@@ -290,7 +285,7 @@ class MazzumaPayment
                 $this->flow = 'rvtv';
                 break;
             default:
-                $this->flow = null;
+                throw new PaymentFlowValidateException('Payment Flow is Invalid !.');
                 break;
         }
     }
@@ -317,7 +312,7 @@ class MazzumaPayment
         if (preg_match("/^\d{3}\d{3}\d{4}$/", $telephone)) {
             return true;
         } else {
-            throw new TelephoneValidateException('Telephone Number is Invalid.');
+            throw new TelephoneValidateException('Telephone Number is Invalid !.');
         }
     }
 

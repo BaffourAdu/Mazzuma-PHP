@@ -7,7 +7,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/BaffourAdu/Mazzuma-PHP/?branch=master)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A library for consuming Mazzuma's payment API to send or receiv Mobile Money for a PHP Application. 
+A library for consuming Mazzuma's payment API to send or recieve Mobile Money for a PHP Application. 
 
 ## Install
 
@@ -24,12 +24,14 @@ require "vendor/autoload.php";
 
 use \BaffourAdu\Mazzuma\MazzumaPayment;
 
+//Replace this with API key as obtained from https://dashboard.mazzuma.com/
 $APIKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
 $payment = new MazzumaPayment($APIKey);
 
 try {
     $response = $payment->transfer('MTN_TO_MTN')
-                ->amount(1)
+                ->amount(1) 
                 ->from('05xxxxxx')
                 ->to('02xxxxxx')
                 ->send();
