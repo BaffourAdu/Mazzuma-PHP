@@ -308,7 +308,7 @@ class MazzumaPayment
      */
     private function validateTelephone($telephone)
     {
-        if (preg_match("/^\d{3}\d{3}\d{4}$/", $telephone)) {
+        if (preg_match("/^\d{10}$/", $telephone)) {
             return true;
         } else {
             throw new TelephoneValidateException('Telephone Number is Invalid !.');
