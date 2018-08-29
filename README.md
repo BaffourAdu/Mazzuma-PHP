@@ -20,7 +20,6 @@ $ composer require baffouradu/mazzuma
 ## Usage
 
 ``` php
-
 require "vendor/autoload.php";
 
 use \BaffourAdu\Mazzuma\MazzumaPayment;
